@@ -24,6 +24,9 @@ class ETLLinguagens:
         #Modifica o padrão do tamanho de cada letra das linguagens preferidas
         df['linguagem_preferida'] = df['linguagem_preferida'].str.upper()
         
+        # Adiciona o prefixo "BR-"
+        df['uf'] = df['uf'].apply(lambda x: 'BR-' + x)
+        
         return df
     
     def load(self, df_selected, file_path):
